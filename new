@@ -1,0 +1,72 @@
+import random 
+Restaurants ={
+
+"Eureka": ["American", "$$", "Lunch", "Dinner", "0"],
+"Le_Pain": ["Bakery", "$$", "Breakfast", "Lunch", "Dinner"],
+"Creme_Bakery": ["Bakery", "$", "Snack", "0", "0"],
+"I_Like_Pie": ["Bakery", "$", "Dessert", "0", "0"],
+"Some_Crust": ["Bakery", "$", "Snack", "0", "0"],
+"21_Choices": ["Ice_Cream", "$", "Dessert", "0", "0"],
+"Aruffos": ["Italian", "$$$", "Lunch", "Dinner", "0"],
+"Back_Abbey": ["American", "$$", "Lunch", "Dinner", "0"],
+"Bardot": ["American", "$$$", "Breakfast", "Lunch", "Dinner"],
+"Bert_and_Rockys": ["Ice_Cream", "$", "Dessert", "0", "0"],
+"Blaze_Pizza": ["Pizza", "$", "Lunch", "Dinner", "0"],
+"Kazama": ["Japanese", "$$", "Lunch", "Dinner", "0"],
+"King_Kong": ["Japanese", "$$", "Lunch", "Dinner", "0"],
+"Menkoi_Ya": ["Japanese", "$$", "Lunch", "Dinner", "0"],
+"Pepo_Melo": ["Acai", "$", "Snack", "0", "0"],
+"Cafe_X2O": ["Mediterranean", "$$", "Lunch", "Dinner", "0"],
+"Sacas": ["Mediterranean", "$$", "Lunch", "Dinner", "0"],
+"T_and_Joy": ["Boba/Coffee", "$", "Snack", "0", "0"],
+"Starbucks": ["Boba/Coffee", "$", "Snack", "0", "0"],
+"Ubatuba": ["Acai", "$", "Snack", "0", "0"],
+"Union_on_Yale": ["American", "$$", "Lunch", "Dinner", "0"],
+"Starbucks": ["Boba/Coffee", "$", "Snack", "0", "0"],
+"Uno_Tre_Otto": ["Italian", "$$$", "Dinner", "0", "0"],
+"Yogurtland": ["Ice Cream", "$", "Snack", "0", "0"],
+"Pizza_n_Such": ["Pizza", "$$", "Lunch", "Dinner", "0"]
+
+}
+
+type = ['American', 'Bakery', 'Ice_Cream', 'Italian', 'Pizza', 'Japanese', 'Acai', 'Mediterranean','Boba/Coffee']
+
+
+
+def simple_chooser():
+        l=[]
+        print('Would you like to lock a category or randomize? (randomize, type, cost, or meal)')
+        start= input() 
+        if start=="randomize":
+            type_random = random.choice(type)
+            for k,v in Restaurants.items():
+                if v[0] == type_random:
+                    l.append(k)
+    
+        elif start=="type":
+            print("'American', 'Bakery', 'Ice_Cream', 'Italian', 'Pizza', 'Japanese', 'Acai', 'Mediterranean', or 'Boba/Coffee?")
+            type_chosen=input()
+            for k,v in Restaurants.items():
+                if v[0] == type_chosen:
+                    l.append(k)
+                
+    
+        elif start=="cost":
+            print("$, $$, $$$")
+            cost_chosen=input()
+            for k,v in Restaurants.items():
+                if v[1] == cost_chosen:
+                    l.append(k)
+        
+        
+        elif start=="meal":
+            print("'Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert'")
+            meal_chosen=input()
+            for k,v in Restaurants.items():
+                if v[2] == meal_chosen or v[3] ==meal_chosen or v[4] ==meal_chosen:
+                    l.append(k)
+                
+        return(random.choice(l))
+                
+        
+        
