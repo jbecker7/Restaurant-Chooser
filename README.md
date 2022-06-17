@@ -8,4 +8,8 @@ To begin, I created the simple_chooser function, which allows to user to choose 
 
 # Advanced Chooser
 
-Building upon the simple_chooser function, the next step is to make an advanced_chooser function that would allow users to lock more than one option (e.g. find an American place open for breakfast). After that, I intend to flesh out the restaurant options and possibly even implement a simple GUI.
+Building upon the simple_chooser function, I made an advanced_chooser function that allows users to lock more than one option (e.g. find an American place open for breakfast). To achieve this, I created an option called "anything works" that users can select if they don't want to lock that category. Aside from that, the core of the function is very similar to the simple_chooser function. 
+
+# Advanced Chooser with Simple GUI
+
+Now I want to add a simple GUI
