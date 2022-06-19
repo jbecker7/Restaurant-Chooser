@@ -32,8 +32,10 @@ Restaurants ={
 x=" "
 type = ['American', 'Bakery', 'Ice_Cream', 'Italian', 'Pizza', 'Japanese', 'Acai', 'Mediterranean','Boba/Coffee']
 
+
 def advanced_Chooser():
     l=[]
+    c=[]
     print("What type of food would you like to eat?")
     print(x)
     print("'Anything Works', 'American', 'Bakery', 'Ice_Cream', 'Italian', 'Pizza', 'Japanese', 'Acai', 'Mediterranean', or 'Boba/Coffee?")
@@ -43,6 +45,11 @@ def advanced_Chooser():
             if type_chosen not in type:
                 print("Sorry, that's not a valid type of food. Please try again.")
                 advanced_Chooser()
+            else:
+                c.append(type_chosen)
+    else:
+        c.append(type_chosen)
+
 
 
     print("What price range would you like to eat?")
@@ -54,7 +61,10 @@ def advanced_Chooser():
         if cost_chosen not in ['$', '$$', '$$$']:
             print("Sorry, that's not a valid price range. Please try again.")
             advanced_Chooser()
-    
+        else:
+            c.append(cost_chosen)
+    else:
+        c.append(cost_chosen)
 
     print("What meal time would you like to eat?")
     print(x)
@@ -65,61 +75,18 @@ def advanced_Chooser():
         if meal_chosen not in ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert']:
             print("Sorry, that's not a valid meal time. Please try again.")
             advanced_Chooser()
-    
-    #All locked
+        else:
+            c.append(meal_chosen)
+    else:
+        c.append(meal_chosen)
 
-    if type_chosen != "Anything Works" and cost_chosen != "Anything Works" and meal_chosen != "Anything Works":
-        for k,v in Restaurants.items():
-            if v[0] == type_chosen and v[1] == cost_chosen and  v[2] == meal_chosen or v[3] ==meal_chosen or v[4] ==meal_chosen:
-                l.append(k)
-
-    #None locked
-    elif type_chosen == "Anything Works" and cost_chosen == "Anything Works" and meal_chosen == "Anything Works":
-        for k,v in Restaurants.items():
-            l.append(k)
-
-
-    #Type and cost locked
-
-    elif type_chosen != "Anything Works" and cost_chosen != "Anything Works" and meal_chosen == "Anything Works":
-        for k,v in Restaurants.items():
-            if v[0] == type_chosen and v[1] == cost_chosen:
-                l.append(k)
-    
-    #Type and meal locked
-
-    elif type_chosen != "Anything Works" and cost_chosen == "Anything Works" and meal_chosen != "Anything Works":
-        for k,v in Restaurants.items():
-            if v[0] == type_chosen and v[2] == meal_chosen or v[3] ==meal_chosen or v[4] ==meal_chosen:
-                l.append(k)
-
-    #Cost and meal locked
-
-    elif type_chosen == "Anything Works" and cost_chosen != "Anything Works" and meal_chosen != "Anything Works":
-        for k,v in Restaurants.items():
-            if v[1] == cost_chosen and v[2] == meal_chosen or v[3] ==meal_chosen or v[4] ==meal_chosen:
-                l.append(k)
-    
-    #Type locked
-
-    elif type_chosen != "Anything Works" and cost_chosen == "Anything Works" and meal_chosen == "Anything Works":
-        for k,v in Restaurants.items():
-            if v[0] == type_chosen:
-                l.append(k)
-    
-    #Cost locked
-
-    elif type_chosen == "Anything Works" and cost_chosen != "Anything Works" and meal_chosen == "Anything Works":
-        for k,v in Restaurants.items():
-            if v[1] == cost_chosen:
-                l.append(k)
-    
-    #Meal locked
-
-    elif type_chosen == "Anything Works" and cost_chosen == "Anything Works" and meal_chosen != "Anything Works":
-        for k,v in Restaurants.items():
-            if v[2] == meal_chosen or v[3] ==meal_chosen or v[4] ==meal_chosen:
-                l.append(k)
     
 
-    return(random.choice(l))
+    for k,v in Restaurants.items():
+        if c[0] == v[0] or c[0] == "Anything Works":
+            if c[1] == v[1] or c[1] == "Anything Works":
+                if c[2] == v[2] or c[2]==v[3] or c[2]==v[4] or c[2] == "Anything Works":
+                    l.append(k)
+        
+
+    return (random.choice(l))
