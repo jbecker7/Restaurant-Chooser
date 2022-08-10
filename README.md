@@ -12,4 +12,4 @@ Building upon the simple_chooser function, I made an advanced_chooser function t
 
 # Advanced Chooser with Simple GUI
 
-Now I want to add a simple GUI
+This became the Claremont Chooser project.
